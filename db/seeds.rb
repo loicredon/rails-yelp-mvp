@@ -7,12 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-5.times do
-  post = Post.new(
-    title: Faker::Company.name,
-    url: Faker::Cannabis.cannabinoid_abbreviation,
-    votes: Faker::Number.between(from: 1, to: 10)
-    )
-  post.save
-end
+restaurant_category = ['italian', 'chinese', 'french', 'japanese', 'belgium']
 
+5.times do
+  restaurant = Restaurant.new(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.full_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    category: restaurant_category.sample
+    )
+  restaurant.save
+end
